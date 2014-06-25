@@ -1,0 +1,20 @@
+<script type="text/javascript">
+(function(){
+    var r = new webkitSpeechRecognition();
+    r.lang = "ja-JP";
+    r.continuous = true;
+    r.interimResults = true;
+
+    r.start();
+    //r.stop();
+
+    r.onerror= function(){ /* error handling */ };
+
+    r.onresult = function(event){
+      var results = event.results;
+      for (var i = event.resultIndex; i<results.length; i++){
+        console.log(results[i][0].transcript);
+      };
+    };
+})();
+</script>
